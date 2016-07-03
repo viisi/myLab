@@ -9,7 +9,6 @@
 		<ui:define name="container">
 			<h:form method="POST" prependId="false" id="loginForm" style="position:relative;top:15%">
 				<p:growl id="msg" showDetail="true" life="3000" />
-				<h:messages globalOnly="true"/>
 	            <p:panel header="Acesso" style="width: 360px">
 					<h:panelGrid columns="2">
 						<p:outputLabel value="Login" />
@@ -17,13 +16,16 @@
 						<p:outputLabel value="Senha" />
 						<p:password id="j_password" value="#{loginCredentials.password}" required="true" label="Senha" />
 						<f:facet name="footer">
-							<p:commandButton id="login" value="Login" action="#{identity.login()}" update="msg" />
+							<p:commandButton id="login" value="Login" action="#{identity.login()}" ajax="false" />
 						</f:facet>
 					</h:panelGrid>
 				</p:panel>
+				
+				<ui:fragment rendered="#{identity.loggedIn}">
+		        	<meta http-equiv="Refresh" content="0; URL=restrito/home.xhtml"/>
+				</ui:fragment>
 			</h:form>
 		</ui:define>
 	</ui:decorate>
-      
 	
 </html>
