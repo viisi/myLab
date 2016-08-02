@@ -11,9 +11,6 @@ import javax.persistence.Table;
 @Table(name = "usuario")
 public class Usuario extends Entidades {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id

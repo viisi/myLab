@@ -1,36 +1,64 @@
-<html xmlns="http://www.w3.org/1999/xhtml"  
-    xmlns:f="http://xmlns.jcp.org/jsf/core"
-    xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
-    
-	<ui:decorate template="/restrito/template.xhtml">
-		<ui:define name="container">
-			<h:form method="POST" style="position:relative;top:15%">
-				<p:growl id="msg" showDetail="true" life="3000" />
-				<h:messages globalOnly="true"/>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:decorate template="/restrito/template.xhtml">
+	<ui:define name="container">
+		<h:form method="POST" style="position:relative;top:15%">
+			<p:growl id="msg" showDetail="true" life="3000" />
+			<h:messages globalOnly="true" />
+
+			<p:panel header="Cadastro de horário">
+			
+				<div>
+					<p:outputLabel value="Dia da semana: " />
+					<p:selectOneMenu id="diasSemana"
+						value="#{cadastroHorarioView.diaSemana}" style="width:150px">
+						<f:selectItem itemLabel="Selecione o dia" itemValue="" noSelectionOption="true" />
+						<f:selectItems value="#{cadastroHorarioView.listaDiasSemana}" />
+					</p:selectOneMenu>
+				</div>
+
+				<br />
+				<br />
+
+				<div>
+					<p:outputLabel value="Turno: " />
+					<p:selectOneMenu id="turnosSemana"
+						value="#{cadastroHorarioView.turno}" style="width:150px">
+						<f:selectItem itemLabel="Selecione o turno" itemValue="" noSelectionOption="true" />
+						<f:selectItems value="#{cadastroHorarioView.listaTurnosSemana}" />
+					</p:selectOneMenu>
+				</div>
+
+				<br />
+				<br />
 				
-	            <p:panel header="Cadastro de horário">
-					<p:outputLabel value="Campo 1" />
-					<p:inputText value="#{cadastroHorarioView.campo1}" required="true" />
-					
-					<br />
-					<p:outputLabel value="Ignorados:" />
-					<p:selectManyMenu id="advanced" showCheckbox="true">
-							<f:selectItem itemLabel="TEste" />
-							<f:selectItem itemLabel="TEste 2" />
-			            <p:column>
-			                <h:outputText styleClass="ui-theme" />
-			            </p:column>
-			            <p:column>
-			                <h:outputText value="Ignorar" />
-			            </p:column>
-			        </p:selectManyMenu>
-					
-					<p:commandButton value="Cadastrar" action="#{cadastroHorarioView.cadastrar()}" ajax="false" />
-				</p:panel>
-			</h:form>
-		</ui:define>
-	</ui:decorate>
+				<div>
+					<p:outputLabel value="Professor: " />
+					<p:selectOneMenu id="professor"
+						value="#{cadastroHorarioView.professor}" style="width:150px">
+						<f:selectItem itemLabel="Selecione o professor" itemValue="" noSelectionOption="true" />
+						<f:selectItems value="#{cadastroHorarioView.nomesProfessores}" />
+					</p:selectOneMenu>
+				</div>
+				
+				<br />
+				<br />
+				
+				<p:outputLabel value="Turma: " />
+				<p:inputText id="turma" label="Selecione a turma" value="#{cadastroHorarioView.turma}"/>
+
+				<br />
+				<br />
+				
+				<p:commandButton value="Cadastrar"
+					action="#{cadastroHorarioView.cadastrar()}" ajax="false" />
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:decorate>
 </html>
