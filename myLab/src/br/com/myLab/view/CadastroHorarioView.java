@@ -29,7 +29,7 @@ public class CadastroHorarioView {
 	private String diaSemana;
 	private String turno;
 	private Professor professor;
-	private Turma turma;
+	private String turma;
 	 
 	List<String> listaDiasSemana = new ArrayList<String>();
 	List<String> listaTurnosSemana = new ArrayList<String>();
@@ -70,16 +70,6 @@ public class CadastroHorarioView {
 		facesContext.addMessage(null, msg);
 		
 	}
-	
-	
-	
-	public List<String> getNomesProfessores() {
-		return nomesProfessores;
-	}
-
-	public void setNomesProfessores(List<String> nomesProfessores) {
-		this.nomesProfessores = nomesProfessores;
-	}
 
 	public FacesContext getFacesContext() {
 		return facesContext;
@@ -87,22 +77,6 @@ public class CadastroHorarioView {
 
 	public void setFacesContext(FacesContext facesContext) {
 		this.facesContext = facesContext;
-	}
-
-	public Professor getProfessor() {
-		return professor;
-	}
-
-	public void setProfessor(Professor professor) {
-		this.professor = professor;
-	}
-
-	public Turma getTurma() {
-		return turma;
-	}
-
-	public void setTurma(Turma turma) {
-		this.turma = turma;
 	}
 
 	public String getDiaSemana() {
@@ -119,6 +93,22 @@ public class CadastroHorarioView {
 
 	public void setTurno(String turno) {
 		this.turno = turno;
+	}
+
+	public Professor getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+	}
+
+	public String getTurma() {
+		return turma;
+	}
+
+	public void setTurma(String turma) {
+		this.turma = turma;
 	}
 
 	public List<String> getListaDiasSemana() {
@@ -143,6 +133,14 @@ public class CadastroHorarioView {
 
 	public void setListaProfessores(List<Professor> listaProfessores) {
 		this.listaProfessores = listaProfessores;
+	}
+
+	public List<String> getNomesProfessores() {
+		return nomesProfessores;
+	}
+
+	public void setNomesProfessores(List<String> nomesProfessores) {
+		this.nomesProfessores = nomesProfessores;
 	}
 
 	public static Logger getLog() {

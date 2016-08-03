@@ -39,7 +39,7 @@
 				
 				<div>
 					<p:outputLabel value="Professor: " />
-					<p:selectOneMenu id="professor"
+					<p:selectOneMenu id="professor" converter="#{cadastroHorarioConverterBean}"
 						value="#{cadastroHorarioView.professor}" style="width:150px">
 						<f:selectItem itemLabel="Selecione o professor" itemValue="" noSelectionOption="true" />
 						<f:selectItems value="#{cadastroHorarioView.nomesProfessores}" />
